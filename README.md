@@ -81,6 +81,7 @@ Akun admin dapat dibuat secara manual menggunakan Laravel Tinker.
 2. Jalankan perintah:
 
 `php artisan tinker`
+
 3. Jalankan kode berikut:
 
 `\App\Models\Admin::create([
