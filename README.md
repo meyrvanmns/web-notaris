@@ -41,13 +41,14 @@ git clone https://github.com/meyrvanmns/web-notaris.git
 cd web-notaris
 ```
 ### 2️⃣ Install Dependency
-``bash
+```bash
 composer install
-``
+```
 ### 3️⃣ Konfigurasi Environment
-`cp .env.example .env`
-
-`php artisan key:generate`
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
 ---
 
@@ -61,20 +62,22 @@ composer install
 6. Pilih file database .sql
 7. Klik Go dan tunggu hingga proses import selesai
 Sesuaikan konfigurasi database pada file `.env`:
-`DB_DATABASE=db_notaris`
-
-`DB_USERNAME=root`
-
-`DB_PASSWORD=`
-
+```bash
+DB_DATABASE=db_notaris
+DB_USERNAME=root
+DB_PASSWORD=
+```
 ---
 
 ## ▶️ Menjalankan Aplikasi
-`php artisan serve`
+```bash
+php artisan serve
+```
 
 Akses aplikasi melalui browser atau klik di terminal pada visual code studio:
-
-`http://127.0.0.1:8000`
+```bash
+http://127.0.0.1:8000
+```
 
 ---
 
@@ -82,16 +85,17 @@ Akses aplikasi melalui browser atau klik di terminal pada visual code studio:
 Akun admin dapat dibuat secara manual menggunakan Laravel Tinker.
 1. Buka Terminal di Visual Studio Code
 2. Jalankan perintah:
-
-`php artisan tinker`
-
-3. Jalankan kode berikut:
-
-`\App\Models\Admin::create([
+```bash
+php artisan tinker
+```
+4. Jalankan kode berikut:
+```bash
+\App\Models\Admin::create([
     'name' => 'Admin Notaris',
     'email' => 'admin@example.com',
     'password' => bcrypt('admin'),
-]);`
+]);
+```
 
 --- 
 
