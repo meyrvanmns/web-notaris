@@ -89,3 +89,8 @@ Akun admin dapat dibuat secara manual menggunakan Laravel Tinker.
     'email' => 'admin@example.com',
     'password' => bcrypt('admin'),
 ]);`
+
+--- 
+
+GitHub: https://github.com/meyrvanmns  
+LinkedIn: https://linkedin.com/in/myrvnmns
