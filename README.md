@@ -57,4 +57,8 @@ Pengembangan website ini mengikuti standar aplikasi web modern dan dapat dikemba
 6. Pilih file database .sql
 7. Klik Go dan tunggu hingga proses import selesai
 Sesuaikan konfigurasi database pada file `.env`:
+``DB_DATABASE=db_notaris
+DB_USERNAME=root
+DB_PASSWORD=``
+
 
