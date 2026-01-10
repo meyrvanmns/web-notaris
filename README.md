@@ -37,13 +37,11 @@ Pengembangan website ini mengikuti standar aplikasi web modern dan dapat dikemba
 
 ### 1️⃣ Clone Repository
 `git clone https://github.com/meyrvanmns/web-notaris.git`
-
 `cd web-notaris`
 ### 2️⃣ Install Dependency
 `composer install`
 ### 3️⃣ Konfigurasi Environment
 `cp .env.example .env`
-
 `php artisan key:generate`
 
 ---
@@ -57,8 +55,8 @@ Pengembangan website ini mengikuti standar aplikasi web modern dan dapat dikemba
 6. Pilih file database .sql
 7. Klik Go dan tunggu hingga proses import selesai
 Sesuaikan konfigurasi database pada file `.env`:
-``DB_DATABASE=db_notaris
-DB_USERNAME=root
-DB_PASSWORD=``
+`DB_DATABASE=db_notaris`
+`DB_USERNAME=root`
+`DB_PASSWORD=`
 
 
