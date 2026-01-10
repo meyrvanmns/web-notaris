@@ -41,7 +41,9 @@ git clone https://github.com/meyrvanmns/web-notaris.git
 cd web-notaris
 ```
 ### 2️⃣ Install Dependency
-`composer install`
+``bash
+composer install
+``
 ### 3️⃣ Konfigurasi Environment
 `cp .env.example .env`
 
