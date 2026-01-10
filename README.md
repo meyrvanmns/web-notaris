@@ -36,9 +36,10 @@ Pengembangan website ini mengikuti standar aplikasi web modern dan dapat dikemba
 ## 📥 Instalasi & Konfigurasi
 
 ### 1️⃣ Clone Repository
-`git clone https://github.com/meyrvanmns/web-notaris.git`
-
-`cd web-notaris`
+```bash
+git clone https://github.com/meyrvanmns/web-notaris.git
+cd web-notaris
+```
 ### 2️⃣ Install Dependency
 `composer install`
 ### 3️⃣ Konfigurasi Environment
