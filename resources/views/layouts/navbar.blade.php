@@ -1,68 +1,74 @@
-<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow-sm">
 
-    <!-- Sidebar Toggle (Topbar) -->
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-        <i class="fa fa-bars"></i>
+        <i class="fa fa-bars text-primary"></i>
     </button>
 
-    <!-- Topbar Search -->
-    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-        <div class="input-group">
-            <input type="text" class="form-control bg-light border-0 small" placeholder="Cari sesuatu..."
-                aria-label="Search" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                    <i class="fas fa-search fa-sm"></i>
-                </button>
-            </div>
-        </div>
-    </form>
+    <div class="d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100">
+        <h6 class="mb-0 text-gray-600">Sistem Informasi Notaris & PPAT</h6>
+        <small class="text-muted">{{ date('d F Y') }}</small>
+    </div>
 
-    <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
 
-        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-        <li class="nav-item dropdown no-arrow d-sm-none">
-            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
+        <li class="nav-item dropdown no-arrow mx-1">
+            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown">
+                <i class="fas fa-bell fa-fw text-gray-400"></i>
+                <span class="badge badge-danger badge-counter">3+</span>
             </a>
-            <!-- Dropdown - Messages -->
-            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                            aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
+            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in">
+                <h6 class="dropdown-header">Pusat Notifikasi</h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <div class="mr-3">
+                        <div class="icon-circle bg-primary">
+                            <i class="fas fa-file-alt text-white"></i>
                         </div>
                     </div>
-                </form>
+                    <div>
+                        <div class="small text-gray-500">Baru Saja</div>
+                        <span class="font-weight-bold">Permohonan akta baru dari Klien: Budi Santoso</span>
+                    </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Lihat Semua Notifikasi</a>
             </div>
         </li>
-        <!-- User Information Dropdown -->
+
+        <div class="topbar-divider d-none d-sm-block"></div>
+
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                @auth('web')
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                        {{ Auth::guard('web')->user()->full_name }}
-                    </span>
-                @endauth
-                <img class="img-profile rounded-circle" src="{{ asset('template/img/undraw_profile.svg') }}">
+                <div class="d-flex flex-column align-items-end mr-3">
+                    @auth('web')
+                        <span class="text-gray-800 small font-weight-bold">
+                            {{ Auth::guard('web')->user()->full_name }}
+                        </span>
+                        <span class="text-gray-500 mb-0" style="font-size: 10px; text-transform: uppercase;">
+                            {{ Auth::guard('web')->user()->role ?? 'Staff' }}
+                        </span>
+                    @endauth
+                </div>
+                <div class="position-relative">
+                    <img class="img-profile rounded-circle border" src="{{ asset('template/img/undraw_profile.svg') }}">
+                    <div class="bg-success position-absolute" style="width: 12px; height: 12px; border-radius: 50%; bottom: 0; right: 0; border: 2px solid white;"></div>
+                </div>
             </a>
 
-            <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Profil Saya
+                </a>
+                <a class="dropdown-item" href="#">
+                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Log Aktivitas
+                </a>
                 <div class="dropdown-divider"></div>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit" class="dropdown-item">
-                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Logout
+                    <button type="submit" class="dropdown-item text-danger font-weight-bold">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>
+                        Keluar Aplikasi
                     </button>
                 </form>
             </div>

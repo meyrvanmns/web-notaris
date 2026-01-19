@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
+    // Tambahkan ini jika nama tabel di database bukan 'clients'
+    protected $table = 'clients'; 
+
     protected $fillable = [
         'name',
         'identity_number',
@@ -15,5 +18,3 @@ class Client extends Model
         'status',
     ];
 }
-
-

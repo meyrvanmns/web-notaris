@@ -1,81 +1,79 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion shadow-lg" id="accordionSidebar">
 
-    <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
-        <div class="sidebar-brand-icon rotate-n-15">
-            {{-- Icon opsional --}}
-        </div>
-        <div class="sidebar-brand-text mx-3">NOTARIS</div>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center my-3" href="/dashboard">
+        <div class="sidebar-brand-icon">
+            <i class="fas fa-balance-scale fa-2x"></i> </div>
+        <div class="sidebar-brand-text mx-3">SI NOTARIS</div>
     </a>
 
     <hr class="sidebar-divider my-0">
 
-    <!-- Dashboard -->
+    <div class="sidebar-heading mt-3" style="font-size: 0.65rem; opacity: 0.7;">
+        MAIN NAVIGATION
+    </div>
+
     <li class="nav-item {{ request()->is('dashboard') ? 'active' : '' }}">
-        <a class="nav-link" href="/dashboard">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
+        <a class="nav-link py-2" href="/dashboard">
+            <i class="fas fa-fw fa-th-large"></i> <span>Dashboard</span>
         </a>
     </li>
 
     <hr class="sidebar-divider">
 
-    <!-- Pengelola Permohonan -->
+    <div class="sidebar-heading" style="font-size: 0.65rem; opacity: 0.7;">
+        OFFICE MANAGEMENT
+    </div>
+
     <li class="nav-item {{ request()->is('request-submissions*') ? 'active' : '' }}">
-        <a class="nav-link" href="/request-submissions">
-            <i class="fas fa-fw fa-folder-open"></i>
-            <span>Pengelola Permohonan</span>
+        <a class="nav-link py-2" href="/request-submissions">
+            <i class="fas fa-fw fa-file-signature"></i> <span>Pengelolaan Permohonan</span>
         </a>
     </li>
 
-    <!-- Data Client -->
     <li class="nav-item {{ request()->is('clients*') ? 'active' : '' }}">
-        <a class="nav-link" href="/clients">
-            <i class="fas fa-fw fa-users"></i>
+        <a class="nav-link py-2" href="/clients">
+            <i class="fas fa-fw fa-address-book"></i>
             <span>Data Client</span>
         </a>
     </li>
 
-    <!-- Jenis Layanan -->
     <li class="nav-item {{ request()->is('ppat-services*') || request()->is('notary-services*') ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-           aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-briefcase"></i>
-            <span>Jenis Layanan</span>
+        <a class="nav-link py-2 collapsed" href="#" data-toggle="collapse" data-target="#collapseLayanan"
+           aria-expanded="true" aria-controls="collapseLayanan">
+            <i class="fas fa-fw fa-layer-group"></i>
+            <span>Katalog Layanan</span>
         </a>
-        <div id="collapseTwo" class="collapse">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Pilih Layanan:</h6>
-                <a class="collapse-item" href="/ppat-services">Layanan PPAT</a>
-                <a class="collapse-item" href="/notary-services">Layanan Notaris</a>
+        <div id="collapseLayanan" class="collapse {{ request()->is('ppat-services*') || request()->is('notary-services*') ? 'show' : '' }}">
+            <div class="bg-white py-2 collapse-inner rounded shadow-sm">
+                <a class="collapse-item {{ request()->is('ppat-services*') ? 'active' : '' }}" href="/ppat-services">Layanan PPAT</a>
+                <a class="collapse-item {{ request()->is('notary-services*') ? 'active' : '' }}" href="/notary-services">Layanan Notaris</a>
             </div>
         </div>
     </li>
 
-    <!-- Biaya Layanan -->
     <li class="nav-item {{ request()->is('service-fees*') ? 'active' : '' }}">
-        <a class="nav-link" href="/service-fees">
-            <i class="fas fa-fw fa-money-bill-wave"></i>
+        <a class="nav-link py-2" href="/service-fees">
+            <i class="fas fa-fw fa-wallet"></i>
             <span>Biaya Layanan</span>
         </a>
     </li>
 
-    <!-- Arsip Dokumen -->
     <li class="nav-item {{ request()->is('documents*') ? 'active' : '' }}">
-        <a class="nav-link" href="/documents">
-            <i class="fas fa-fw fa-archive"></i>
+        <a class="nav-link py-2" href="/documents">
+            <i class="fas fa-fw fa-file-invoice"></i>
             <span>Arsip Dokumen</span>
         </a>
     </li>
 
-    {{-- ===================== --}}
-    {{-- USER MANAGEMENT --}}
-    {{-- ADMIN & NOTARIS ONLY --}}
-    {{-- ===================== --}}
+    {{-- SYSTEM CONTROL --}}
     @if(auth()->check() && in_array(auth()->user()->role, ['admin', 'staff']))
+        <hr class="sidebar-divider">
+        <div class="sidebar-heading" style="font-size: 0.65rem; opacity: 0.7;">
+            SETTINGS
+        </div>
         <li class="nav-item {{ request()->is('user-management*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('users.index') }}">
-                <i class="fas fa-fw fa-user-cog"></i>
+            <a class="nav-link py-2" href="{{ route('users.index') }}">
+                <i class="fas fa-fw fa-user-shield"></i>
                 <span>User Management</span>
             </a>
         </li>
@@ -83,8 +81,7 @@
 
     <hr class="sidebar-divider d-none d-md-block">
 
-    <!-- Sidebar Toggler -->
-    <div class="text-center d-none d-md-inline">
+    <div class="text-center d-none d-md-inline mt-4">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
 
