@@ -9,6 +9,7 @@ use App\Http\Controllers\ServiceFeeController;
 use App\Http\Controllers\PpatServiceController;
 use App\Http\Controllers\NotaryServiceController;
 use App\Http\Controllers\RequestSubmissionController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,9 +52,9 @@ Route::middleware('auth')->group(function () {
     | DASHBOARD
     |--------------------------------------------------------------------------
     */
-    Route::get('/dashboard', function () {
-        return view('pages.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware('auth')
+    ->name('dashboard');
 
     /*
     |--------------------------------------------------------------------------

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 19 Jan 2026 pada 04.18
+-- Waktu pembuatan: 19 Jan 2026 pada 15.19
 -- Versi server: 8.0.30
 -- Versi PHP: 8.3.21
 
@@ -66,10 +66,7 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `name`, `identity_number`, `address`, `phone`, `email`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'rido', '801280396', 'test', '0190283128798', 'ridhostwn@gmail.com', 'aktif', '2025-05-28 05:27:31', '2025-05-28 05:27:31'),
-(2, 'beeng', '123103213', 'tseasas', '082114798363', 'myrvanmns@gmail.com', 'aktif', '2025-06-17 00:28:45', '2025-06-17 00:28:45'),
-(3, 'biyan', '1', 's', '0', 'm@gmail.com', 'aktif', '2026-01-15 11:05:18', '2026-01-15 11:05:18'),
-(4, 'biyan', '00', 'soeoso', '0292312310', 'biy@example.com', 'aktif', '2026-01-18 21:14:07', '2026-01-18 21:14:07');
+(8, 'biyan', '1203131', 'madkadaokadas', '1203103', 'biyan@example.com', 'aktif', '2026-01-19 08:18:17', '2026-01-19 08:18:17');
 
 -- --------------------------------------------------------
 
@@ -94,8 +91,7 @@ CREATE TABLE `documents` (
 --
 
 INSERT INTO `documents` (`id`, `document_type`, `client_name`, `document_date`, `file_path`, `notes`, `access_status`, `created_at`, `updated_at`) VALUES
-(3, 'Akte', 'Ridho', '2025-06-01', 'documents/iL8yDxn1Y7ePn8gJ0di8486eVNOpO87huOIUfXm5.pdf', 'test', 'publik', '2025-05-28 08:03:38', '2025-05-28 08:03:38'),
-(4, 'Sertifikat', 'beeng', '2025-06-17', 'documents/UPaUNsoVSkqki0b0uS1yNqDc5pLySNIWjvCMJFPs.pdf', 'addasd', 'privat', '2025-06-17 00:25:13', '2025-06-17 00:25:13');
+(6, 'sertif', 'biyan', '2026-01-19', 'documents/6HfyGoYbarRJ6AUgeOF4pepSKpIO0l5iys0CQs1p.pdf', 'sadads', 'publik', '2026-01-19 08:17:43', '2026-01-19 08:17:43');
 
 -- --------------------------------------------------------
 
@@ -198,18 +194,6 @@ CREATE TABLE `request_submissions` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data untuk tabel `request_submissions`
---
-
-INSERT INTO `request_submissions` (`id`, `client_name`, `request_type`, `submission_date`, `status`, `notes`, `document_path`, `created_at`, `updated_at`) VALUES
-(6, 'Ridho12', 'waris', '2025-05-31', 'selesai', 'test', 'documents/9ccO8PTtYuRTNDbfHe1zCoHml7ubB1EOJMCqixTD.pdf', '2025-05-30 09:21:26', '2025-05-30 09:21:26'),
-(7, 'beeng', 'sertifikat', '2025-06-14', 'menunggu', 'asdas', 'documents/I37ssunQ5yas6jNjyKw3t2vMp6t8oYehKcGHZult.pdf', '2025-06-13 21:27:27', '2025-06-13 21:27:27'),
-(8, 'Meyrvan Maulana Nur Sasmito', 'sertifikat', '2025-12-12', 'menunggu', 'Test', 'documents/CZ0DE30AUmSSHe57CvlxUQwqoU9ilgmcFiS5X225.pdf', '2025-12-12 00:32:43', '2025-12-12 00:32:43'),
-(9, 'biyan', 'sertifikat', '2026-01-16', 'menunggu', 'nothing', 'documents/ADvO5Jz0JfkVSbTC07Om333AP56svfVmtOs3lo1l.pdf', '2026-01-15 11:04:42', '2026-01-15 11:04:42'),
-(10, 'biyan', 'sertifikat', '2026-01-16', 'menunggu', '2', 'documents/MQIgGw3QtgFSJO0Ubgru6DuSxcfuH1d88rcueznY.pdf', '2026-01-15 11:24:24', '2026-01-15 11:24:24'),
-(11, 'biyan', 'ajb', '2026-01-19', 'selesai', 'sadsdwqe', 'documents/VMZha0dqd7pVC3b7nqBeLZu6RphQYgA6Q0YyjTxX.pdf', '2026-01-18 21:05:48', '2026-01-18 21:05:48');
-
 -- --------------------------------------------------------
 
 --
@@ -234,7 +218,7 @@ CREATE TABLE `service_fees` (
 --
 
 INSERT INTO `service_fees` (`id`, `client_name`, `service_type`, `cost_details`, `total_amount`, `payment_status`, `payment_method`, `payment_date`, `created_at`, `updated_at`) VALUES
-(2, 'Ridho', 'hibah', 'test', 100000.00, 'lunas', 'Cash', '2025-05-31', '2025-05-28 05:30:37', '2025-05-28 05:30:37');
+(6, 'asdasdsa', 'jual_beli', 'asdas', 1000000000.00, 'lunas', 'BCA', '2026-01-19', '2026-01-19 08:02:16', '2026-01-19 08:02:16');
 
 -- --------------------------------------------------------
 
@@ -256,9 +240,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('abxTzpglxHaHjzoNWm0sB9abrfSqeLue0BQxcbLs', 12, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiYzlTVGZqcm5qa2thMmVYUERYandidEFJNnpVME9Od0pyelpEWllUaSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXNoYm9hcmQiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxMjt9', 1768796099),
-('JswSD4CfnRBTENY1iqnpDvWAniVPnoR0acpYpDMF', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiZHhwaHgwVHdQdWpralZlb2Z6cTdoWkw1bmhuaXpiU0JqdVhEZWFoRCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1768793057),
-('Z0OV40F6MeVMDlqxqujDWnk8mlZtv4HogrBN6H5g', 9, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoidzhjNlRIY3pleHlDMWhyUWNYRkNBaTBBQUVCRlpSSmhtWlE0NnRZUSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM5OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvaW5kZXgucGhwL19fZGVidWciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTo5O30=', 1768791446);
+('x1U3Fi0LOIHNJGuXrnSxMDuwFkJAl2CyKhNwjOtt', 10, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiS3F4TGw5SEJXRjg5Q1NKZmgxZVV3MWdIbDhXRXFOUkxHZTZUVzh5VCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXNoYm9hcmQiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxMDt9', 1768835899);
 
 -- --------------------------------------------------------
 
@@ -290,7 +272,8 @@ INSERT INTO `users` (`id`, `full_name`, `role`, `email`, `username`, `password`,
 (9, 'Administrator', 'admin', 'admin@notaris.test', 'admin', '$2y$12$LCXyzlLdKjBB.wBolApgausJzaxUbK8Gq9TSx8/UnhsqpXI/olUhq', 'aktif', '2026-01-18 08:54:18', '2026-01-18 09:44:25'),
 (10, 'username@001', 'user', 'user1@example.com', 'user1', '$2y$12$mzRHvSitRUjE5vKV1fTAjuoZopRcjwXKF1lY.d/k66kxZxFM3iOQi', 'aktif', '2026-01-18 12:38:55', '2026-01-18 12:38:55'),
 (11, 'staffnotaris@001', 'staff', 'staff1@example.com', 'staff1', '$2y$12$VwyJ5pvjPaSpHFUtOPgCd.grG9PiF24dgLxsVoUR4MMwmGkmBbANe', 'aktif', '2026-01-18 21:03:42', '2026-01-18 21:03:42'),
-(12, 'username@002', 'user', 'user2@example.com', 'user2', '$2y$12$CoNEvZ0VHimAgJs3BN0.2.hfbGjh6w.ua0niV7.wkepvHb5dObVAq', 'aktif', '2026-01-18 21:04:39', '2026-01-18 21:04:39');
+(12, 'username@002', 'user', 'user2@example.com', 'user2', '$2y$12$CoNEvZ0VHimAgJs3BN0.2.hfbGjh6w.ua0niV7.wkepvHb5dObVAq', 'aktif', '2026-01-18 21:04:39', '2026-01-18 21:04:39'),
+(13, 'biyanfns', 'user', 'bynfns@example.com', 'bynfns', '$2y$12$pWiWK/5EgVrmF/OoScHoTOfJHyz8uddMUeHexHwoCs4fLnSgCkU3S', 'aktif', '2026-01-19 03:52:37', '2026-01-19 03:52:37');
 
 --
 -- Indexes for dumped tables
@@ -375,13 +358,13 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT untuk tabel `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `documents`
 --
 ALTER TABLE `documents`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
@@ -405,19 +388,19 @@ ALTER TABLE `ppat_services`
 -- AUTO_INCREMENT untuk tabel `request_submissions`
 --
 ALTER TABLE `request_submissions`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `service_fees`
 --
 ALTER TABLE `service_fees`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

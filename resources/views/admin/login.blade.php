@@ -106,7 +106,7 @@
             </div>
             
             <div class="text-center mt-4">
-                <p class="small text-white-50">&copy; {{ date('Y') }} SI NOTARIS - Sistem Manajemen Terpadu</p>
+                <p class="small text-white-50">&copy; {{ date('Y') }} SI NOTARIS by Meyrvan Maulana Nur Sasmito</p>
             </div>
         </div>
     </div>

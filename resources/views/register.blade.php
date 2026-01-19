@@ -135,7 +135,7 @@
             </div>
             
             <div class="text-center mt-4">
-                <p class="small text-white-50">&copy; {{ date('Y') }} SI NOTARIS &bull; Sistem Manajemen Kantor Aman</p>
+                <p class="small text-white-50">&copy; {{ date('Y') }} SI NOTARIS by Meyrvan Maulana Nur Sasmito</p>
             </div>
         </div>
     </div>
