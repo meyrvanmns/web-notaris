@@ -1,54 +1,79 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <h3>Manajemen User</h3>
+<div class="container">
+    <h3 class="mb-3">Manajemen User</h3>
 
-        <a href="{{ route('users.create') }}" class="btn btn-success mb-3">Tambah User</a>
+    <a href="{{ route('users.create') }}" class="btn btn-success mb-3">
+        <i class="fas fa-user-plus"></i> Tambah User
+    </a>
 
-        @if (session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
-        <table class="table table-bordered">
-            <thead>
+    <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+            <thead class="table-light">
                 <tr>
                     <th>Nama</th>
-                    <th>Role</th>
                     <th>Email</th>
-                    <th>Username</th>
-                    <th>Status</th>
-                    <th>Action</th>
+                    <th>Role</th>
+                    <th>Dibuat</th>
+                    <th width="120">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $u)
+                @forelse ($users as $u)
                     <tr>
-                        <td>{{ $u->full_name }}</td>
-                        <td>{{ ucfirst($u->role) }}</td>
+                        <td>{{ $u->name }}</td>
                         <td>{{ $u->email }}</td>
-                        <td>{{ $u->username }}</td>
-                        <td>{{ ucfirst($u->status) }}</td>
                         <td>
-                            <div class="d-flex gap-1 flex-wrap">
-                                <a href="{{ route('users.edit', $u->id) }}" class="btn btn-sm btn-warning me-1" title="Edit">
-                                    <i class="fas fa-pen"></i>
-                                </a>
+                            <span class="badge 
+                                {{ $u->role === 'admin' ? 'bg-danger' : ($u->role === 'staff' ? 'bg-warning text-dark' : 'bg-secondary') }}">
+                                {{ ucfirst($u->role) }}
+                            </span>
+                        </td>
+                        <td>{{ $u->created_at->format('d M Y') }}</td>
+                        <td>
+                            <div class="d-flex gap-1">
 
-                                <form action="{{ route('users.destroy', $u->id) }}" method="POST"
-                                    onsubmit="return confirm('Yakin ingin menghapus user ini?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-sm btn-danger me-1" title="Hapus">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </form>
+                                {{-- Admin saja yang boleh hapus --}}
+                                @if(auth()->user()->role === 'admin')
+
+                                    {{-- Tidak bisa hapus akun sendiri --}}
+                                    @if(auth()->id() !== $u->id)
+                                        <form action="{{ route('users.destroy', $u->id) }}" method="POST"
+                                            onsubmit="return confirm('Yakin ingin menghapus user ini?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-sm btn-danger" title="Hapus">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    @else
+                                        <span class="text-muted small">Akun Anda</span>
+                                    @endif
+
+                                @else
+                                    {{-- Staff hanya bisa melihat --}}
+                                    <span class="text-muted small">View only</span>
+                                @endif
+
                             </div>
                         </td>
-
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="5" class="text-center text-muted">
+                            Data user belum tersedia
+                        </td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
+</div>
 @endsection
