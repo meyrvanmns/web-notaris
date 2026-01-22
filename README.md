@@ -1,7 +1,7 @@
 # 🏛️ Web Notaris
 
-## 📌 Deskripsi
 Web Notaris merupakan aplikasi berbasis web yang dikembangkan untuk memenuhi kebutuhan klien dalam menyediakan sistem informasi dan administrasi notaris secara digital. Aplikasi ini dirancang untuk membantu pengelolaan data, penyajian informasi, serta mendukung proses administrasi agar lebih terstruktur, efisien, dan mudah digunakan.
+
 ---
 
 ## 🚀 Demo Aplikasi
